@@ -104,13 +104,9 @@ const ChannelTask = (props) => {
   const getChannels2 = async () => {
     setLoading(true);
     try {
-      console.log(loggedId);
-      console.log(loggedRealId);
       const res1 = await axios({
         method: 'get',
-        url:
-          // `${process.env.REACT_APP_API_URL}/api/carpools?userId=${loggedRealId}`,
-          `${process.env.REACT_APP_API_URL}/api/channels/${loggedRealId}`,
+        url: `${process.env.REACT_APP_API_URL}/api/channels/${loggedRealId}`,
         header: {
           withCredentials: true,
         },

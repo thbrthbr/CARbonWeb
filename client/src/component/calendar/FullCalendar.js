@@ -93,7 +93,6 @@ const RenderCells = () => {
 
   const carbonData = async () => {
     try {
-      console.log(loggedRealId);
       const thisYear = new Date();
       const res = await axios({
         method: 'get',

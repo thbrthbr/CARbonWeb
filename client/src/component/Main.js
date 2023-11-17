@@ -205,7 +205,6 @@ const Main = (props) => {
           withCredentials: true,
         },
       });
-      console.log(res.data);
       if (res.data.status == 200) {
         alert('로그인 되었습니다');
         setLoggedin(true);

@@ -94,11 +94,9 @@ const ProfileTask = (props) => {
     if (switchOn === false) {
       setSwitchOn(true);
       patchUserData();
-      console.log(switchOn);
     }
     if (switchOn === true) {
       setSwitchOn(false);
-      console.log(switchOn);
     }
   };
 
@@ -112,7 +110,6 @@ const ProfileTask = (props) => {
     } else {
       setGender(e.currentTarget.value);
     }
-    console.log(gender);
   };
 
   const phoneChange = (e) => {
@@ -133,7 +130,6 @@ const ProfileTask = (props) => {
     } else {
       setOwnCar(false);
     }
-    console.log(ownCar);
   };
 
   const isDriverChange = (e) => {

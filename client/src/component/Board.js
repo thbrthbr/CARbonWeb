@@ -455,17 +455,14 @@ const Board = ({ searchPlace }) => {
 
   const regularChange = (e) => {
     setRegular(JSON.parse(e.currentTarget.value));
-    console.log(regular);
   };
 
   const contentChange = (e) => {
     setContent(e.currentTarget.value);
-    console.log(content);
   };
 
   const personnelChange = (e) => {
     setPersonnel(e.currentTarget.value);
-    console.log(content);
   };
 
   const onChangeSearch = (event) => {
@@ -562,7 +559,6 @@ const Board = ({ searchPlace }) => {
 
   const showAttendeeProfile2 = async (id, roomid) => {
     try {
-      console.log(document.getElementById(`hidden_${id}`).children);
       const res = await axios({
         method: 'get',
         url: `${process.env.REACT_APP_API_URL}/api/userDA/${id}/${roomid}`,
@@ -608,11 +604,6 @@ const Board = ({ searchPlace }) => {
 
   const selectDriver = async (id, nickname) => {
     try {
-      console.log(enteredPostId);
-      console.log(id);
-      console.log(loggedRealId);
-      console.log(nickname);
-
       let confirm = window.confirm('해당유저를 운전자로 지정하시겠습니까?');
       if (confirm) {
         const res = await axios({
@@ -627,9 +618,6 @@ const Board = ({ searchPlace }) => {
             withCredentials: true,
           },
         });
-
-        console.log(res);
-
         alert('수정되었습니다.');
         window.location.reload();
       } else {
@@ -748,10 +736,6 @@ const Board = ({ searchPlace }) => {
     }
   };
 
-  const closeProfile = (event) => {
-    console.log(event);
-  };
-
   const enterChannel2 = async (channel) => {
     try {
       let {
@@ -804,8 +788,6 @@ const Board = ({ searchPlace }) => {
       setRoomArrival(res3.data.data.arrivals);
       setRoomDriver(res3.data.data.driverNickname);
 
-      console.log(res3.data.data);
-
       let tempArr = [];
       for (let j = 0; j < res3.data.data.mateList.length; j++) {
         let tempArr_1 = [];
@@ -815,7 +797,7 @@ const Board = ({ searchPlace }) => {
         tempArr_1.push(res3.data.data.mateList[j].arrivals);
         tempArr.push(tempArr_1);
       }
-      console.log(tempArr);
+
       setRoomPeople(tempArr);
 
       if (!tempArr.flat(2).includes(loggedRealId)) {
@@ -839,7 +821,6 @@ const Board = ({ searchPlace }) => {
           arrivalsLatitude: arrivalsLatitude,
           arrivalsLongitude: arrivalsLongitude,
         };
-        console.log(letMeIn);
         let result = window.confirm('해당 채널에 입장하시겠습니까?');
         if (result) {
           const res1 = await axios({
@@ -876,11 +857,7 @@ const Board = ({ searchPlace }) => {
   const realGetChannelData = async () => {
     setLoading(true);
     try {
-      console.log(loggedId);
-      console.log(loggedNickname);
-      console.log(loggedRealId);
       setFlag(false);
-      // const temp = 1;
       const res = await axios({
         method: 'get',
         url: `${process.env.REACT_APP_API_URL}/api/pages/${1}`,
@@ -970,9 +947,7 @@ const Board = ({ searchPlace }) => {
         personnel: personnel,
         content: content === null ? '내용없음' : content,
         regular: regular,
-        // carpoolDate: today,
       };
-      console.log(channelData);
 
       const res = await axios({
         method: 'post',
@@ -1048,7 +1023,6 @@ const Board = ({ searchPlace }) => {
           tempArr.push(reverseData[j]);
         }
         tempAllArr = [...tempAllArr, tempArr];
-        console.log(tempAllArr.flat(1));
         tempArr = [];
       }
       setChannelArr(tempAllArr.flat(1));
@@ -1357,7 +1331,6 @@ const Board = ({ searchPlace }) => {
         function placesSearchCBD(data, status, pagination) {
           if (status === window.kakao.maps.services.Status.OK) {
             const dataD = data;
-            console.log(dataD);
             const locationD = [dataD[0].x, dataD[0].y];
             const locationD_name = dataD[0].place_name;
             searchChannel('findD', locationD, locationD_name);
@@ -1371,7 +1344,6 @@ const Board = ({ searchPlace }) => {
         function placesSearchCBA(data, status, pagination) {
           if (status === window.kakao.maps.services.Status.OK) {
             const dataA = data;
-            console.log(dataA);
             const locationA = [dataA[0].x, dataA[0].y];
             const locationA_name = dataA[0].place_name;
             searchChannel('findA', locationA, locationA_name);
@@ -1421,7 +1393,6 @@ const Board = ({ searchPlace }) => {
 
     const searchChannel = async (DorA, location, locationName) => {
       try {
-        console.log('여기아니지?');
         if (DorA === 'findD') {
           completeXY.unshift(location);
           completeDA.unshift(locationName);
@@ -1461,7 +1432,7 @@ const Board = ({ searchPlace }) => {
           let finalA = R * c2;
 
           if (finalD <= 500 && finalA <= 500) {
-            console.log('프로토타입');
+            console.log('proto');
           } else {
             alert('100미터 이내에 존재하는 주소가 아닙니다.');
             completeXY = [];
@@ -1601,7 +1572,6 @@ const Board = ({ searchPlace }) => {
 
       el.innerHTML = itemStr;
       el.className = 'item';
-      // console.log(itemStr);
       return el;
     }
 
@@ -1901,8 +1871,6 @@ const Board = ({ searchPlace }) => {
     findDA?.addEventListener('click', function (e) {
       let findD = document.getElementById('findD').value;
       let findA = document.getElementById('findA').value;
-      console.log(findD);
-      console.log(findA);
       if (
         !findD.replace(/^\s+|\s+$/g, '') ||
         !findA.replace(/^\s+|\s+$/g, '')
@@ -1946,7 +1914,6 @@ const Board = ({ searchPlace }) => {
         function placesSearchCBA(data, status, pagination) {
           if (status === window.kakao.maps.services.Status.OK) {
             const dataA = data;
-            // console.log(dataA);
             const locationA = [dataA[0].x, dataA[0].y];
             const locationA_name = dataA[0].place_name;
             searchChannel('findA', locationA, locationA_name);
@@ -1999,8 +1966,6 @@ const Board = ({ searchPlace }) => {
         if (DorA === 'findD') {
           completeXY.unshift(location);
           completeDA.unshift(locationName);
-          console.log(completeXY);
-          console.log(completeDA);
           if (completeXY.length == 2 && completeDA.length == 2) {
             let tempArr1 = [];
             let R = 6372.8 * 1000;
@@ -2060,14 +2025,13 @@ const Board = ({ searchPlace }) => {
               completeXY = [];
               completeDA = [];
             }
-          } else {
-            console.log('이건 버림');
           }
+          // else {
+          //   console.log('proto');
+          // }
         } else {
           completeXY.push(location);
           completeDA.push(locationName);
-          console.log(completeXY);
-          console.log(completeDA);
           if (completeXY.length == 2 && completeDA.length == 2) {
             let tempArr1 = [];
             let R = 6372.8 * 1000;
@@ -2129,7 +2093,7 @@ const Board = ({ searchPlace }) => {
               completeDA = [];
             }
           } else {
-            console.log('이건 버림');
+            console.log('proto');
           }
         }
       } catch (e) {
@@ -2265,7 +2229,6 @@ const Board = ({ searchPlace }) => {
 
       el.innerHTML = itemStr;
       el.className = 'item';
-      // console.log(itemStr);
       return el;
     }
 
