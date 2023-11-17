@@ -3,7 +3,6 @@ const { Op } = require('sequelize');
 
 exports.login = async (req, res) => {
   try {
-    console.log(req.body);
     let user = await Users.findOne({
       where: { userId: req.body.username },
     });
@@ -28,14 +27,11 @@ exports.login = async (req, res) => {
 
 exports.carbonFootPrints = async (req, res) => {
   let list = await FootPrints.findAll();
-  console.log(req.query.userId);
-  console.log(req.query.year);
   res.send({ status: 200 });
 };
 
 exports.signin = async (req, res) => {
   try {
-    console.log(req.body);
     let response = await Users.create({
       userId: req.body.userId,
       password: req.body.password,
@@ -90,7 +86,6 @@ exports.getToday = async (req, res) => {
         myData.today += +user[i].dataValues.emissions;
       }
     }
-    console.log('여긴데용', myData);
     res.send({ status: 200, todayData: myData });
   } catch (e) {
     res.send({ status: 401 });
@@ -195,7 +190,6 @@ exports.getChannels = async (req, res) => {
     channel.mateList = mates;
     channelData.push(channel);
   }
-  console.log('여기임', channelData);
   res.send({ data: channelData });
 };
 
@@ -303,13 +297,10 @@ exports.getOneChannel = async (req, res) => {
   let entered = await Channels.findOne({
     where: { id: +req.params.id },
   });
-  console.log(entered);
   let mateList = await Mate.findAll({
     where: { mateListId: entered.dataValues.mateListId },
   });
-  console.log('이거거든', mateList);
   entered.dataValues['mateList'] = mateList;
-  console.log(entered);
   res.send({ status: 200, data: entered });
 };
 
@@ -335,7 +326,6 @@ exports.mateOn = async (req, res) => {
 };
 
 exports.patchChannelContent = async (req, res) => {
-  console.log(req.body);
   let result = await Channels.update(
     {
       content: req.body.content,
@@ -355,8 +345,6 @@ exports.showUserProfile = async (req, res) => {
 };
 
 exports.showUserDA = async (req, res) => {
-  console.log(req.params.id);
-  console.log(req.params.roomid);
   let room = await Channels.findOne({ where: { id: req.params.roomid } });
   let mate = await Mate.findOne({
     where: {
@@ -383,7 +371,6 @@ exports.driverChange = async (req, res) => {
 };
 
 exports.personalDAChange = async (req, res) => {
-  console.log(req.body);
   let channel = await Channels.findOne({ where: { id: req.body.channelId } });
 
   await Mate.update(

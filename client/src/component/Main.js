@@ -496,7 +496,7 @@ const Main = (props) => {
               }}
             >
               <Link
-                to="/login/today/*"
+                to="/login/today"
                 style={{ color: 'inherit', textDecoration: 'none' }}
               >
                 <AiOutlineArrowRight />
