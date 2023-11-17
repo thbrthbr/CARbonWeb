@@ -5,7 +5,6 @@ import { Icon } from '@iconify/react';
 import { MasterStore3 } from './store/store.js';
 import { MdEnergySavingsLeaf } from 'react-icons/md';
 import Loading from './Spinner.js';
-import dotenv from 'dotenv';
 
 const TodayContainer = styled.div`
   width: 1500px;
