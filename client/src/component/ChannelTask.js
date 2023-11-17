@@ -110,7 +110,7 @@ const ChannelTask = (props) => {
         method: 'get',
         url:
           // `${process.env.REACT_APP_API_URL}/api/carpools?userId=${loggedRealId}`,
-          `http://localhost:8000/api/channels/${loggedRealId}`,
+          `${process.env.REACT_APP_API_URL}/api/channels/${loggedRealId}`,
         header: {
           withCredentials: true,
         },
@@ -133,7 +133,7 @@ const ChannelTask = (props) => {
             method: 'delete',
             url:
               // `${process.env.REACT_APP_API_URL}/api/posts?postId=${id}&userId=${loggedRealId}`,
-              `http://localhost:8000/api/channels/${channelId}`,
+              `${process.env.REACT_APP_API_URL}/api/channels/${channelId}`,
             header: {
               withCredentials: true,
             },

@@ -97,7 +97,7 @@ const RenderCells = () => {
       const thisYear = new Date();
       const res = await axios({
         method: 'get',
-        url: `http://localhost:8000/api/calendar/${loggedRealId}`,
+        url: `${process.env.REACT_APP_API_URL}/api/calendar/${loggedRealId}`,
         header: {
           withCredentials: true,
         },

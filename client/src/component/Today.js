@@ -5,6 +5,7 @@ import { Icon } from '@iconify/react';
 import { MasterStore3 } from './store/store.js';
 import { MdEnergySavingsLeaf } from 'react-icons/md';
 import Loading from './Spinner.js';
+import dotenv from 'dotenv';
 
 const TodayContainer = styled.div`
   width: 1500px;
@@ -70,7 +71,7 @@ const Today = (props) => {
     try {
       const res1 = await axios({
         method: 'GET',
-        url: `http://localhost:8000/api/today/${loggedRealId}`,
+        url: `${process.env.REACT_APP_API_URL}/api/today/${loggedRealId}`,
         header: {
           withCredentials: true,
         },
@@ -92,7 +93,7 @@ const Today = (props) => {
     try {
       const res1 = await axios({
         method: 'GET',
-        url: `http://localhost:8000/api/lastday/${loggedRealId}`,
+        url: `${process.env.REACT_APP_API_URL}/api/lastday/${loggedRealId}`,
         header: {
           withCredentials: true,
         },

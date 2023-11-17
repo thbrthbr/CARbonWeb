@@ -174,7 +174,7 @@ const Main = (props) => {
       const res = await axios({
         // `${process.env.REACT_APP_API_URL}/join`,
         method: 'post',
-        url: `http://localhost:8000/signin`,
+        url: `${process.env.REACT_APP_API_URL}/signin`,
         data: signInData,
         header: {
           withCredentials: true,
@@ -196,7 +196,7 @@ const Main = (props) => {
     try {
       const res = await axios({
         method: 'POST',
-        url: `http://localhost:8000/login`,
+        url: `${process.env.REACT_APP_API_URL}/login`,
         data: {
           username: id,
           password: password,

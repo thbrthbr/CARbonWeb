@@ -510,7 +510,7 @@ const Board = ({ searchPlace }) => {
       const res = await axios({
         method: 'get',
         // url: `${process.env.REACT_APP_API_URL}/api/users/${id}?userId=${loggedRealId}`,
-        url: `http://localhost:8000/api/userProfile/${id}`,
+        url: `${process.env.REACT_APP_API_URL}/api/userProfile/${id}`,
         header: {
           withCredentials: true,
         },
@@ -565,7 +565,7 @@ const Board = ({ searchPlace }) => {
       console.log(document.getElementById(`hidden_${id}`).children);
       const res = await axios({
         method: 'get',
-        url: `http://localhost:8000/api/userDA/${id}/${roomid}`,
+        url: `${process.env.REACT_APP_API_URL}/api/userDA/${id}/${roomid}`,
         header: {
           withCredentials: true,
         },
@@ -617,7 +617,7 @@ const Board = ({ searchPlace }) => {
       if (confirm) {
         const res = await axios({
           method: 'patch',
-          url: `http://localhost:8000/api/driverChange`,
+          url: `${process.env.REACT_APP_API_URL}/api/driverChange`,
           data: {
             roomId: enteredPostId,
             driverId: id,
@@ -791,7 +791,7 @@ const Board = ({ searchPlace }) => {
 
       const res3 = await axios({
         method: 'get',
-        url: `http://localhost:8000/api/enter/${id}`,
+        url: `${process.env.REACT_APP_API_URL}/api/enter/${id}`,
         header: {
           withCredentials: true,
         },
@@ -844,7 +844,7 @@ const Board = ({ searchPlace }) => {
         if (result) {
           const res1 = await axios({
             method: 'post',
-            url: `http://localhost:8000/api/mateOn`,
+            url: `${process.env.REACT_APP_API_URL}/api/mateOn`,
             data: letMeIn,
             header: {
               withCredentials: true,
@@ -883,7 +883,7 @@ const Board = ({ searchPlace }) => {
       // const temp = 1;
       const res = await axios({
         method: 'get',
-        url: `http://localhost:8000/api/pages/${1}`,
+        url: `${process.env.REACT_APP_API_URL}/api/pages/${1}`,
         header: {
           withCredentials: true,
         },
@@ -917,7 +917,7 @@ const Board = ({ searchPlace }) => {
     try {
       const res = await axios({
         method: 'get',
-        url: `http://localhost:8000/api/pages/${e}`,
+        url: `${process.env.REACT_APP_API_URL}/api/pages/${e}`,
         header: {
           withCredentials: true,
         },
@@ -976,7 +976,7 @@ const Board = ({ searchPlace }) => {
 
       const res = await axios({
         method: 'post',
-        url: `http://localhost:8000/api/channelCreate`,
+        url: `${process.env.REACT_APP_API_URL}/api/channelCreate`,
         data: channelData,
         header: {
           withCredentials: true,
@@ -997,7 +997,7 @@ const Board = ({ searchPlace }) => {
       };
       const res2 = await axios({
         method: 'post',
-        url: `http://localhost:8000/api/mateOn`,
+        url: `${process.env.REACT_APP_API_URL}/api/mateOn`,
         data: mate,
         header: {
           withCredentials: true,
@@ -1018,7 +1018,7 @@ const Board = ({ searchPlace }) => {
     try {
       const res = await axios({
         method: 'get',
-        url: `http://localhost:8000/api/search/${searchWord}/${i}`,
+        url: `${process.env.REACT_APP_API_URL}/api/search/${searchWord}/${i}`,
         header: {
           withCredentials: true,
         },
@@ -1077,7 +1077,7 @@ const Board = ({ searchPlace }) => {
       } else {
         const res = await axios({
           method: 'patch',
-          url: `http://localhost:8000/api/channelContentPatch`,
+          url: `${process.env.REACT_APP_API_URL}/api/channelContentPatch`,
           data: {
             channelId: enteredPostId,
             content: roomContent,
@@ -2045,7 +2045,7 @@ const Board = ({ searchPlace }) => {
               };
               const res = await axios({
                 method: 'patch',
-                url: `http://localhost:8000/api/personalDAChange`,
+                url: `${process.env.REACT_APP_API_URL}/api/personalDAChange`,
                 data: changedDA,
                 header: {
                   withCredentials: true,
@@ -2113,7 +2113,7 @@ const Board = ({ searchPlace }) => {
               };
               const res = await axios({
                 method: 'patch',
-                url: `http://localhost:8000/api/personalDAChange`,
+                url: `${process.env.REACT_APP_API_URL}/api/personalDAChange`,
                 data: changedDA,
                 header: {
                   withCredentials: true,

@@ -150,7 +150,7 @@ const ProfileTask = (props) => {
       const res = await axios({
         // `${process.env.REACT_APP_API_URL}/api/users/${loggedRealId}?userId=${loggedRealId}`,
         method: 'get',
-        url: `http://localhost:8000/api/profile/${loggedRealId}`,
+        url: `${process.env.REACT_APP_API_URL}/api/profile/${loggedRealId}`,
         header: {
           withCredentials: true,
         },
@@ -187,7 +187,7 @@ const ProfileTask = (props) => {
       };
       const res = await axios({
         method: 'patch',
-        url: `http://localhost:8000/api/profile/${loggedRealId}`,
+        url: `${process.env.REACT_APP_API_URL}/api/profile/${loggedRealId}`,
         data: updateDataObj,
         header: {
           withCredentials: true,

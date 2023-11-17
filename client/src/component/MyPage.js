@@ -56,16 +56,6 @@ const MyPage = (props) => {
             >
               Channel
             </Link>
-            {/* <div
-              style={{
-                position: 'absolute',
-                marginTop: '10px',
-                marginLeft: '-5px',
-                width: '105px',
-                height: '200px',
-                backgroundColor: 'white',
-              }}
-            ></div> */}
           </PageCategory1>
           <PageCategory2 onClick={stateInit}>
             <Link
