@@ -80,9 +80,10 @@ exports.getToday = async (req, res) => {
       today: 0,
     };
     let today = new Date();
+    console.log(today);
     for (let i = 0; i < user.length; i++) {
-      myData.emission += +user[i].dataValues.emissions;
       if (user[i].dataValues.day == today.getDate()) {
+        myData.emission += +user[i].dataValues.emissions;
         myData.today += +user[i].dataValues.emissions;
       }
     }
